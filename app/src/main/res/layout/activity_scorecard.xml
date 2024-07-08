@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/new1">
+
+    <!-- Image at the top left -->
+
+    <!-- Scorecard heading -->
+    <!--
+
+   <ImageView
+       android:id="@+id/imageView"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="16dp"
+       android:adjustViewBounds="true"
+       android:layout_below="@id/imageView"
+       android:src="@drawable/boc" />
+        -->
+
+    <TextView
+        android:id="@+id/textViewScorecard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCORECARD"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <!-- Buttons -->
+    <ScrollView
+        android:id="@+id/s1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewScorecard"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="120dp"
+        android:background="@drawable/rounded_white_box"
+        android:padding="16dp">
+
+
+
+        <TextView
+            android:id="@+id/textViewResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewScorecard"
+            android:background="@drawable/rounded_white_box"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:typeface="sans"
+            tools:ignore="UnknownId" />
+
+    </ScrollView>
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/nextRoundButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next Round"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Restart button -->
+        <Button
+            android:id="@+id/restartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restart Game"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Exit button -->
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exit"/>
+        </LinearLayout>
+
+
+
+
+
+        <!-- Next round button -->
+
+
+
+    <!-- FrameLayout for result -->
+
+
+</RelativeLayout>
