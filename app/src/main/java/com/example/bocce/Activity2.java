@@ -32,7 +32,7 @@ public class Activity2 extends AppCompatActivity implements Robot.AsrListener, O
         sRobot = Robot.getInstance();
 
         // Ask a question when the activity is created
-        sRobot.askQuestion("Hello , would you like to start the game, read instructions, or exit?");
+        sRobot.askQuestion("DO YOU GUYS WANT TO START THE GAME,  OR EXIT?");
 
         // Register this activity as a listener for robot readiness
         sRobot.addOnRobotReadyListener(this);
@@ -41,24 +41,30 @@ public class Activity2 extends AppCompatActivity implements Robot.AsrListener, O
 
     // Handle the "Start" button click
     public void startButtonClicked(View view) {
-        Intent intent = new Intent(this, Roundactivity.class);
+        //Intent intent = new Intent(this, Roundactivity.class);
+        Intent intent = new Intent(this, DoneStartActivity2.class);
+
         startActivity(intent);
     }
     private void startButtonClicked() {
-        Intent intent = new Intent(this, Roundactivity.class);
+        //Intent intent = new Intent(this, Roundactivity.class);
+        Intent intent = new Intent(this, DoneStartActivity2.class);
+
         startActivity(intent);
     }
 
 
     // Handle the "Instruct" button click
-    public void instructButtonClicked(View view) {
+    /*public void instructButtonClicked(View view) {
+        onStop();
         Intent intent = new Intent(this, InstructActivity.class);
         startActivity(intent);
     }
     private void instructButtonClicked() {
+        onStop();
         Intent intent = new Intent(this, InstructActivity.class);
         startActivity(intent);
-    }
+    }*/
 
     // Handle the "Exit" button click
     public void exitButtonClicked(View view) {
@@ -82,11 +88,14 @@ public class Activity2 extends AppCompatActivity implements Robot.AsrListener, O
         // Define a map of keywords and their corresponding actions
         Map<String, Runnable> actions = new HashMap<>();
         actions.put("start", this::startButtonClicked);
+        actions.put("star", this::startButtonClicked);
         actions.put("sure", this::startButtonClicked);
         actions.put("game", this::startButtonClicked); // "game" triggers startButtonClicked
-        actions.put("instructions", this::instructButtonClicked);
-        actions.put("instruction", this::instructButtonClicked);
-        actions.put("read", this::instructButtonClicked);
+       // actions.put("instructions", this::instructButtonClicked);
+       // actions.put("check", this::instructButtonClicked);
+        //actions.put("out", this::instructButtonClicked);
+        //actions.put("instruction", this::instructButtonClicked);
+        //actions.put("read", this::instructButtonClicked);
         actions.put("exit", this::exitButtonClicked);
 
         // Check if any keyword is contained within the asrResult and execute the corresponding action
@@ -100,7 +109,7 @@ public class Activity2 extends AppCompatActivity implements Robot.AsrListener, O
         }
 
         // Command not recognized, ask again
-        askQuestion("Sorry, I didn't understand. Please repeat it");
+        askQuestion("SORRY,I DIDN'T UNDERSTAND ,PLEASE REPEAT AGAIN");
     }
 
     // Process user's response

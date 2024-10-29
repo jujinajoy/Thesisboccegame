@@ -48,23 +48,23 @@
             android:layout_marginEnd="16dp"
             android:textColor="#222222"
             android:textSize="25sp"/>
-
         <TextView
             android:id="@+id/instruction2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2. Select the number of chances you want to play."
+            android:text="2. Players can use either voice commands or can touch buttons .While using voice commands one player speak at a time."
             android:layout_marginTop="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textColor="#222222"
             android:textSize="25sp"/>
 
+
         <TextView
             android:id="@+id/instruction3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3. Only one ball can be thrown at a time."
+            android:text="3.Players has to enter their names in the playing order and has to select a ball colour."
             android:layout_marginTop="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -75,18 +75,19 @@
             android:id="@+id/instruction4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4. Players can use either voice commands or touch to play."
+            android:text="4. Only one player can throw the ball at a time."
             android:layout_marginTop="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textColor="#222222"
             android:textSize="25sp"/>
 
+
         <TextView
             android:id="@+id/instruction5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5. Stand on the white line and throw the ball."
+            android:text="5. Stand next to the carpet to throw the ball."
             android:layout_marginTop="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -97,7 +98,7 @@
             android:id="@+id/instruction6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6. The player whose ball is nearest to the white ball wins."
+            android:text="6. The player who throw their ball much closer to the white ball will score more."
             android:layout_marginTop="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -108,7 +109,7 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back to Main"
+        android:text="start Game"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"

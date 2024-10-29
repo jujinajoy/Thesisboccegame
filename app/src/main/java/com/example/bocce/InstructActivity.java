@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class InstructActivity extends AppCompatActivity implements
         OnRobotReadyListener, RobotAsrErrorListener, Robot.AsrListener{
-    private final Queue<String> queue = new LinkedList<>(Arrays.asList());
+    private final Queue<String> queue1 = new LinkedList<>(Arrays.asList());
     private Robot sRobot;
     private static final String TAG = InstructActivity.class.getSimpleName();
 
@@ -50,43 +50,45 @@ public class InstructActivity extends AppCompatActivity implements
 
 
         // Add instruction strings to the queue
-        queue.add(instructionText1);
-        queue.add(instructionText2);
-        queue.add(instructionText3);
-        queue.add(instructionText4);
-        queue.add(instructionText5);
-        queue.add(instructionText6);
-        sRobot.addOnRobotReadyListener(this);
-        sRobot.addAsrListener(this);
+        queue1.add(instructionText1);
+        queue1.add(instructionText2);
+        queue1.add(instructionText3);
+        queue1.add(instructionText4);
+        queue1.add(instructionText5);
+        queue1.add(instructionText6);
+
+
 
         // Set up TTS listener
         sRobot.addTtsListener(ttsRequest -> {
-            if (ttsRequest.getStatus() == TtsRequest.Status.COMPLETED && !queue.isEmpty()) {
+            if (ttsRequest.getStatus() == TtsRequest.Status.COMPLETED && !queue1.isEmpty()) {
                 // Speak the next instruction in the queue
-                sRobot.speak(TtsRequest.create(queue.remove(), false));
-            } else if (queue.isEmpty()) {
+                sRobot.speak(TtsRequest.create(queue1.remove(), false));
+            } else if (queue1.isEmpty()) {
+                //backButtonClicked();
                 // All instructions have been spoken, ask user to continue
-                askToContinue();
+
+                //sRobot.askQuestion("Let's head to the next screen to choose your rounds!");
+                sRobot.addOnRobotReadyListener(this);
+                sRobot.addAsrListener(this);
+
             }
         });
 
 
         // Start speaking the first instruction
-        sRobot.speak(TtsRequest.create(queue.remove(), false));
+        sRobot.speak(TtsRequest.create(queue1.remove(), false));
     }
 
-    private void askToContinue() {
-        // Ask the user if they want to continue
-        sRobot.askQuestion("Let's head to the next screen to choose your rounds!");
-
-    }
 
     public void backButtonClicked(View view) {
-        Intent intent = new Intent(this, Roundactivity.class);
+        queue1.clear();
+        Intent intent = new Intent(this, DoneStartActivity2.class);
         startActivity(intent);
     }
     private void backButtonClicked() {
-        Intent intent = new Intent(this, Roundactivity.class);
+        queue1.clear();
+        Intent intent = new Intent(this, DoneStartActivity2.class);
         startActivity(intent);
     }
 
@@ -101,11 +103,12 @@ public class InstructActivity extends AppCompatActivity implements
         }
 
     }*/
-    private void askQuestion(String question) {
+
+   /* private void askQuestion(String question) {
         Log.d(TAG, "Asking question: " + question);
         sRobot.askQuestion(question);
 
-    }
+    }*/
     @Override
     public void onAsrResult(@NonNull String asrResult) {
         Log.d(TAG, "ASR Result: " + asrResult);
@@ -114,6 +117,7 @@ public class InstructActivity extends AppCompatActivity implements
         // Define a map of keywords and their corresponding actions
         Map<String, Runnable> actions = new HashMap<>();
         actions.put("yes", this::backButtonClicked);
+        actions.put("yeah", this::backButtonClicked);
         actions.put("sure", this::backButtonClicked);
         actions.put("ok", this::backButtonClicked);
         actions.put("next", this::backButtonClicked);
@@ -134,7 +138,7 @@ public class InstructActivity extends AppCompatActivity implements
 
         // Command not recognized, ask again
         //askQuestion("Sorry, I didn't understand. Please say it again");
-        askQuestion("I didn't catch that, could you say it again?");
+        //askQuestion("Sorry, I didn't understand. Please repeat it");
     }
 
 
@@ -158,6 +162,7 @@ public class InstructActivity extends AppCompatActivity implements
         super.onStart();
         Log.d(TAG, "onStart: Adding ASR and Robot Ready Listeners");
         sRobot.addAsrListener(this);
+        sRobot.addOnRobotReadyListener(this);
     }
 
     @Override
@@ -166,7 +171,15 @@ public class InstructActivity extends AppCompatActivity implements
 
         Log.d(TAG, "onStop: Removing ASR and Robot Ready Listeners");
         sRobot.removeAsrListener(this);
+        sRobot.removeOnRobotReadyListener(this);
     }
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: Cleaning up");
+        sRobot.removeAsrListener(this);
+        sRobot.removeOnRobotReadyListener(this);
+    }
+
 
 
 }

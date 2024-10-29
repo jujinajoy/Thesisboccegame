@@ -3,27 +3,86 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#FFB6C1"
+    android:background="@drawable/winner"
+    android:padding="16dp">
 
-    >
+    <!--
+     <TextView
+        android:id="@+id/dialog_message1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="16dp"
+        android:textColor="#006400"
+        android:textSize="33sp" />
+
+   <TextView
+        android:id="@+id/dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textSize="33sp" />
+       -->
+
 
     <TextView
         android:id="@+id/dialog_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:padding="16dp"
-        android:textColor="@android:color/black" />
+        android:gravity="center"
+        android:text="LEADERBOARD"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/dialog_message"
+
+
+    <TableLayout
+        android:id="@+id/table_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        android:textColor="@android:color/black" />
+        android:stretchColumns="1"
+        android:paddingBottom="8dp">
+
+        <!-- Header Row -->
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="PLAYER"
+                android:textColor="#FF8C00"
+                android:padding="10dp"
+                android:gravity="start"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="POINTS"
+                android:textColor="#FF8C00"
+                android:padding="10dp"
+                android:gravity="start"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/first_player_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/table_layout"
+        android:text="WINNER"
+        android:textSize="29sp"
+        android:textColor="#006400"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="8dp"/>
+
 
 </LinearLayout>

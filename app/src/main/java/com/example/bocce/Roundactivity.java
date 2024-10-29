@@ -85,6 +85,7 @@ public class Roundactivity extends AppCompatActivity implements Robot.AsrListene
         if (selectedRoundCount == -1) {
             showSelectRoundCountAlert();
         } else {
+            onStop();
             Intent intent = new Intent(this, DoneStartActivity2.class);
             intent.putExtra("selectedRoundCount", selectedRoundCount);
             startActivity(intent);
@@ -95,6 +96,7 @@ public class Roundactivity extends AppCompatActivity implements Robot.AsrListene
         if (selectedRoundCount == -1) {
             showSelectRoundCountAlert();
         } else {
+            onStop();
             Intent intent = new Intent(this, DoneStartActivity2.class);
             intent.putExtra("selectedRoundCount", selectedRoundCount);
             startActivity(intent);
@@ -103,6 +105,7 @@ public class Roundactivity extends AppCompatActivity implements Robot.AsrListene
 
     // Handle the "Instruct" button click
     public void backButtonClicked(View view) {
+
         Intent intent = new Intent(this, Activity2.class);
         startActivity(intent);
     }
@@ -123,11 +126,13 @@ public class Roundactivity extends AppCompatActivity implements Robot.AsrListene
         actions.put("1", () -> selectRound(1));
         actions.put("two", () -> selectRound(2));
         actions.put("2", () -> selectRound(2));
+        actions.put("to", () -> selectRound(2));
         actions.put("three", () -> selectRound(3));
         actions.put("3", () -> selectRound(3));
         actions.put("yes", this::doneButtonClicked);
         actions.put("go", this::doneButtonClicked);
         actions.put("sure", this::doneButtonClicked);
+        actions.put("yeah", this::doneButtonClicked);
         actions.put("next", this::doneButtonClicked);
         actions.put("move", this::doneButtonClicked);
         actions.put("no",this::backButtonClicked);
@@ -216,7 +221,7 @@ public class Roundactivity extends AppCompatActivity implements Robot.AsrListene
 
     private void askToContinue() {
         // Ask the user if they want to continue
-        sRobot.askQuestion("Lets continue if so please say yes");
+        sRobot.askQuestion("LET'S CONTINUE IF SO PLEASE SAY YES");
     }
 
     // Handle the user's response to continue or not

@@ -17,6 +17,12 @@
        android:adjustViewBounds="true"
        android:layout_below="@id/imageView"
        android:src="@drawable/boc" />
+        <Button
+            android:id="@+id/nextRoundButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next Round"
+            android:layout_marginEnd="8dp"/>
         -->
 
     <TextView
@@ -31,6 +37,8 @@
         android:layout_centerHorizontal="true"
         />
 
+
+
     <!-- Buttons -->
     <ScrollView
         android:id="@+id/s1"
@@ -42,24 +50,87 @@
         android:layout_marginRight="120dp"
         android:background="@drawable/rounded_white_box"
         android:padding="16dp">
+        <!--
 
-
-
-        <TextView
-            android:id="@+id/textViewResult"
+        <TableLayout
+            android:id="@+id/table_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewScorecard"
-            android:background="@drawable/rounded_white_box"
-            android:gravity="center"
-            android:padding="8dp"
-            android:textColor="@android:color/black"
-            android:textSize="15sp"
-            android:typeface="sans"
-            tools:ignore="UnknownId" />
+            android:stretchColumns="1"
+            android:padding="8dp">
+
+             Define the header row
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="8"> Adjust weightSum to match the sum of weights in your columns
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="PLAYER"
+                    android:textSize="22sp"
+                android:layout_weight="4"
+                android:padding="6dp"
+                android:textColor="#006400"
+                android:gravity="start"
+                android:layout_marginEnd="32dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="BALL"
+                    android:textSize="22sp"
+                android:layout_weight="2"
+                android:padding="6dp"
+                android:textColor="#006400"
+                android:gravity="start" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="DISTANCE"
+                    android:textSize="22sp"
+                android:layout_weight="2"
+                android:padding="6dp"
+                android:textColor="#006400"
+                android:gravity="start" />
+            </TableRow>
+
+             Add more TableRows here with the same structure
+
+        </TableLayout>
+
+    -->
+
+
+
+   <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewScorecard"
+        android:background="@drawable/rounded_white_box"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="#006400"
+        android:textSize="29sp"
+        android:typeface="sans"
+        tools:ignore="UnknownId" />
+
+
+
 
     </ScrollView>
-        <LinearLayout
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/s1" />
+
+
+
+
+    <LinearLayout
             android:id="@+id/buttonLayout"
 
             android:layout_width="match_parent"
@@ -68,19 +139,16 @@
             android:gravity="center"
             android:padding="16dp"
             android:layout_alignParentBottom="true">
-        <Button
-            android:id="@+id/nextRoundButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next Round"
-            android:layout_marginEnd="8dp"/>
+
 
         <!-- Restart button -->
         <Button
             android:id="@+id/restartButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Restart Game"
+
+            android:text="Continue"
+            android:textSize="30sp"
             android:layout_marginEnd="8dp"/>
 
         <!-- Exit button -->
@@ -88,6 +156,7 @@
             android:id="@+id/exitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="30sp"
             android:text="Exit"/>
         </LinearLayout>
 

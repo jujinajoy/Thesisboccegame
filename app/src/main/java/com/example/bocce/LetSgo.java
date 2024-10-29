@@ -16,6 +16,7 @@ public class LetSgo extends AppCompatActivity implements OnRobotReadyListener {
     String[] ballColors;
     String[] playerNames;
     int noOfRound;
+    private int currentRound;;
     private Robot sRobot;
     private static final String TAG = "LetSgo";
 
@@ -26,13 +27,14 @@ public class LetSgo extends AppCompatActivity implements OnRobotReadyListener {
         sRobot = Robot.getInstance();
         sRobot.addOnRobotReadyListener(this);
         //TtsRequest ttsRequest = TtsRequest.create("Every players please take their Balls and be ready to start the game", true);
-        TtsRequest ttsRequest = TtsRequest.create("Players, please grab your balls and get ready to start.", true);
+        TtsRequest ttsRequest = TtsRequest.create("PLAYERS, PLEASE GRAB YOUR BALLS AND GET READY TO START", true);
         sRobot.speak(ttsRequest);
         sRobot.finishConversation();
 
         playerNames = getIntent().getStringArrayExtra("playerNames");
         ballColors = getIntent().getStringArrayExtra("ballColors");
         noOfRound = getIntent().getIntExtra("selectedRoundCount", 1);
+        currentRound = getIntent().getIntExtra("roundCount", 1);
         new Handler().postDelayed(navigateToNextPageRunnable, DELAY_MILLIS);
     }
 
@@ -75,7 +77,8 @@ public class LetSgo extends AppCompatActivity implements OnRobotReadyListener {
             // Add extras to the Intent
             intent.putExtra("playerNames", playerNames);
             intent.putExtra("ballColors", ballColors);
-            intent.putExtra("selectedRoundCount", noOfRound);
+            intent.putExtra("selectedRoundCount",noOfRound);
+            intent.putExtra("roundCount", currentRound);
             // Start the ShowPlain activity
             startActivity(intent);
             // Finish the LetSgo activity to prevent it from being returned to
