@@ -6,7 +6,7 @@ import android.view.View;
 import android.graphics.Typeface;
 import android.graphics.Color;
 import android.text.InputFilter;
-
+import com.robotemi.sdk.TtsRequest;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,7 +34,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
     private LinearLayout playerContainer;
     private int numberOfPlayers = 4;
     private final List<String> selectedColors = new ArrayList<>();
-    private final Set<String> availableColors = new HashSet<>(Arrays.asList("Null", "Red", "Blue", "Green", "Orange"));
+    private final Set<String> availableColors = new HashSet<>(Arrays.asList("NONE", "Red", "Blue", "Green", "Orange"));
     private String[] playerNames;
     private String[] ballColors;
     private int noOfRound;
@@ -69,7 +69,9 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
         noOfRound = getIntent().getIntExtra("selectedRoundCount", 1);
         playerNames = getPlayerNames();
         //noOfRound = getIntent().getIntExtra("selectedRoundCount", 0);
-        sRobot.askQuestion("Players please come forward and fill the fields with your names and choose ball colour from the given options");
+        TtsRequest ttsRequest = TtsRequest.create("PLAYERS PLEASE COME FORWARD IN THE PLAYING ORDER AND FILL THE FIELDS WITH YOUR NAMES AND CHOOSE BALL COLOUR FROM THE GIVEN OPTIONS", true);
+        sRobot.speak(ttsRequest);
+        //sRobot.askQuestion("Players please come forward and fill the fields with your names and choose ball colour from the given options");
         sRobot.addOnRobotReadyListener(this);
         sRobot.addAsrListener(this);
 
@@ -82,7 +84,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
             playerNameEditText.setTextSize(28); // Set the font size
             Typeface typeface = Typeface.create("Comic-Sans-Ms", Typeface.NORMAL); // Example of setting a custom font style
             playerNameEditText.setTypeface(typeface);
-            int brickRedColor = Color.parseColor("#B22222"); // Hexadecimal color code for brick red
+            int brickRedColor = Color.parseColor("#006400"); // Hexadecimal color code for brick red #93E9BE  B22222
             playerNameEditText.setTextColor(brickRedColor);
 
 
@@ -96,20 +98,61 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
             Spinner playerBallColorSpinner = new Spinner(this);
             playerBallColorSpinner.setId(View.generateViewId());
 
-            ArrayAdapter<String> colorAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.ball_colors));
+            //ArrayAdapter<String> colorAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.ball_colors));
+            // Use the custom layout for the spinner items
+            ArrayAdapter<String> colorAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, getResources().getStringArray(R.array.ball_colors));
 
 
 
-            colorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            //colorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            // Optionally, use a different layout for the dropdown view
+            colorAdapter.setDropDownViewResource(R.layout.spinner_item);
             playerBallColorSpinner.setAdapter(colorAdapter);
 
             playerBallColorSpinner.setSelection(colorAdapter.getPosition(getString(R.string.default_color)));
-
             playerBallColorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     String selectedColor = (String) parent.getItemAtPosition(position);
-                    if (selectedColor != null && selectedColors.contains(selectedColor)) {
+                    String previousColor = selectedColors.get(playerIndex);
+
+                    // Check if the selected color is already chosen by another player
+                    if (selectedColor != "NONE" && !selectedColor.equals(previousColor) && selectedColors.contains(selectedColor)) {
+                        showColorAlreadySelectedAlert(selectedColor);
+                        // Revert to the previous valid color
+                        playerBallColorSpinner.setSelection(((ArrayAdapter<String>) playerBallColorSpinner.getAdapter()).getPosition(previousColor));
+                    } else {
+                        // If the color is valid, update the selected colors
+                        if (!previousColor.equals("NONE")) {
+                            availableColors.add(previousColor); // Add the previous color back to available colors
+                        }
+                        selectedColors.set(playerIndex, selectedColor);
+                        availableColors.remove(selectedColor); // Remove the newly selected color from available colors
+                        // Notify the adapter of the changes
+                        colorAdapter.notifyDataSetChanged();
+                    }
+                    // Triggering the check after a valid selection
+                    if (areAllFieldsFilled() && areAllColorsSelected()) {
+                        askIfUsersWantToContinue(); // Calls this method when all conditions are met
+
+
+
+
+
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
+
+
+            /*playerBallColorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedColor = (String) parent.getItemAtPosition(position);
+                    if (selectedColor!= "NONE" && selectedColors.contains(selectedColor)) {
                         showColorAlreadySelectedAlert(selectedColor);
                     } else {
                         selectedColors.set(playerIndex, selectedColor);
@@ -126,7 +169,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
                 }
-            });
+            });*/
 
             playerContainer.addView(playerBallColorSpinner);
         }
@@ -136,7 +179,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
         });
     }
     public void backButtonClicked(View view) {
-        Intent intent = new Intent(this, Roundactivity.class);
+        Intent intent = new Intent(this, Activity2.class);
         startActivity(intent);
     }
     private void askQuestion(String question) {
@@ -161,7 +204,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
 
     private boolean areAllColorsSelected() {
         for (String color : selectedColors) {
-            if (color == null || color.isEmpty()) {
+            if (color == "NONE" || color.isEmpty()) {
                 return false;
             }
         }
@@ -179,7 +222,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
 
     private void showSelectAllColorsAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Please select a color other than 'Null' for each player before proceeding.")
+        builder.setMessage("Please select a color other than 'NONE' for each player before proceeding.")
                 .setTitle("Color Selection Incomplete")
                 .setPositiveButton("OK", (dialog, id) -> dialog.dismiss());
         AlertDialog dialog = builder.create();
@@ -187,7 +230,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
     }
 
     private void showColorAlreadySelectedAlert(String color) {
-        if (color != null && !color.isEmpty() && !color.equals("Null")) {
+        if (color != "NONE" && !color.isEmpty() && !color.equals("NONE")) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("The color " + color + " has already been selected by another player. Please choose a different color.")
                     .setTitle("Color Already Selected")
@@ -199,7 +242,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
 
     private void showSelectValidColorAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Please select a color other than 'Null' for each player before proceeding.")
+        builder.setMessage("Please select a color other than 'NONE' for each player before proceeding.")
                 .setTitle("Invalid Color Selection")
                 .setPositiveButton("OK", (dialog, id) -> dialog.dismiss());
         AlertDialog dialog = builder.create();
@@ -252,19 +295,19 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
     //backButton.setOnClickListener(v -> onBackPressed());
    private void askIfUsersWantToContinue() {
        //sRobot.askQuestion("Ready to continue to the next activity?");
-       sRobot.askQuestion("Are you ready for the next stage?");
+       sRobot.askQuestion("THANK YOU FOR ENTERING THE NAMES AND CHOOSING COLOURS. NOW DO YOU WANT TO CONTINUE THE GAME?");
    }
 
     private void proceedIfReady() {
         if (areAllFieldsFilled()) {
             if (areAllColorsSelected()) {
-                if (!selectedColors.contains("Null")) {
+                if (!selectedColors.contains("NONE")) {
                     playerNames = getPlayerNames();
                     ballColors = selectedColors.toArray(new String[0]);
 
                     // Check if there are at least 2 players
                     if (numberOfPlayers >= 4) {
-                        Log.d("DoneStartActivity2", "Navigating to ShowPlain activity");
+                        Log.d("DoneStartActivity2", "Navigating to LETSGO activity");
                         Intent intent = new Intent(DoneStartActivity2.this, LetSgo.class);
                         intent.putExtra("playerNames", playerNames);
                         intent.putExtra("ballColors", ballColors);
@@ -292,6 +335,7 @@ public class DoneStartActivity2 extends AppCompatActivity implements Robot.AsrLi
         // Define a map of keywords and their corresponding actions
         Map<String, Runnable> actions = new HashMap<>();
         actions.put("yes", this::proceedIfReady);
+        actions.put("yh", this::proceedIfReady);
         actions.put("yeah", this::proceedIfReady);
         actions.put("ok", this::proceedIfReady);
         actions.put("sure", this::proceedIfReady);

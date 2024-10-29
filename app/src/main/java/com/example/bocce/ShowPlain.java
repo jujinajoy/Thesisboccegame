@@ -25,7 +25,7 @@ import com.robotemi.sdk.listeners.OnRobotReadyListener;
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener, Robot.AsrListener, RobotAsrErrorListener{
+public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener, RobotAsrErrorListener{
 
     private String[] playerNames;
     private String[] ballColors;
@@ -34,12 +34,13 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
     private TextView ballColorTextView;
     private TextView timerTextView;
     private Button scorecardButton;
+    private Button nextPlayerButton;
 
     private int currentPlayerIndex = 0;
     private int currentRound;
     private int noOfRound;
     private CountDownTimer timer;
-    private static final String SERVER_URL = "http://139.174.104.200/runsss.php"; // Replace with your server URL
+    private static final String SERVER_URL = "http://139.174.111.33/runsss.php"; // Replace with your server URL
     private static final String TAG = "ShowPlain";
     private Robot sRobot;
     final Queue<String> queue = new LinkedList<>();
@@ -56,8 +57,9 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
         TextView roundTextView = findViewById(R.id.roundTextView);
         playerNameTextView = findViewById(R.id.playerNameTextView);
         ballColorTextView = findViewById(R.id.ballColorTextView);
-        timerTextView = findViewById(R.id.timerTextView);
+       // timerTextView = findViewById(R.id.timerTextView);
         scorecardButton = findViewById(R.id.scorecardButton);
+        nextPlayerButton = findViewById(R.id.nextPlayerButton);
 
 
         playerNames = getIntent().getStringArrayExtra("playerNames");
@@ -74,13 +76,18 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
             intent.putExtra("roundCount", currentRound);
             intent.putExtra("playerNames", playerNames);
             intent.putExtra("ballColors", ballColors);
+            sendHttpRequestTask = new SendHttpRequestTask();
+            sendHttpRequestTask.execute();
+
+
             // Pass the current round count
 
             //roundTextView.setText("Round " +currentRound);
-            sendHttpRequestTask = new SendHttpRequestTask();
-            sendHttpRequestTask.execute();
+            // = new SendHttpRequestTask();
+            //sendHttpRequestTask.execute();
             startActivity(intent);
         });
+        nextPlayerButton.setOnClickListener(v -> showNextPlayerInfo());
 
 
         // showNextPlayerInfo();
@@ -96,9 +103,13 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
         startActivity(intent);
     }
     private void askToContinue() {
+        sendHttpRequestTask = new SendHttpRequestTask();
+        sendHttpRequestTask.execute();
+
+
         // Ask the user if they want to continue
         //sRobot.askQuestion("Let's continue, if so, please say yes.");
-        sRobot.askQuestion("Ready to view the results?");
+        //sRobot.askQuestion("Ready to view the results?");
 
     }
 
@@ -107,16 +118,30 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
         if (currentPlayerIndex < playerNames.length) {
             playerNameTextView.setText(playerNames[currentPlayerIndex]);
             ballColorTextView.setText(ballColors[currentPlayerIndex]);
-            String textToSpeak = playerNames[currentPlayerIndex] + " " + ballColors[currentPlayerIndex];
-            sRobot.speak(TtsRequest.create(textToSpeak, false));
-
-            //sRobot.speak(TtsRequest.create(playerNames[currentPlayerIndex], false));
-            //sRobot.speak(TtsRequest.create(ballColors[currentPlayerIndex],false));
+            String textToSpeak = "PLAYER " +playerNames[currentPlayerIndex] + " , STEP FORWARD AND THROW BALL " + ballColors[currentPlayerIndex];
+            //sRobot.speak(TtsRequest.create(textToSpeak, true));
+            sRobot.speak(TtsRequest.create(textToSpeak, true));
             currentPlayerIndex++;
-        } else {
+            //nextPlayerButton.setVisibility(View.VISIBLE);
+            if (currentPlayerIndex < playerNames.length) {
+                nextPlayerButton.setVisibility(View.VISIBLE);
+                scorecardButton.setVisibility(View.GONE);
+            } else {
+                nextPlayerButton.setVisibility(View.GONE);
+                scorecardButton.setVisibility(View.VISIBLE);
+            }
+
+
+
+        }
+
+        else {
+
             currentPlayerIndex = 0;
             currentRound++;
-            if (currentRound >=1) {
+            noOfRound++;
+            if (currentRound >=0) {
+
                 scorecardButton.setVisibility(View.VISIBLE);
                 askToContinue();
                 timerTextView.setText("");
@@ -126,10 +151,11 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
                 return;
             }
         }
-        startTimer();
+        //startTimer();
     }
-    private void startTimer() {
-        timer = new CountDownTimer(4000, 1000) {
+    /*private void startTimer() {
+        //timer = new CountDownTimer(14000, 1000) {
+        timer = new CountDownTimer(5000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timerTextView.setText(String.valueOf(millisUntilFinished / 1000));
@@ -143,9 +169,9 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
 
         };
         timer.start();
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void onAsrResult(@NonNull String asrResult) {
         Log.d(TAG, "ASR Result: " + asrResult);
         asrResult = asrResult.toLowerCase(); // Convert the result to lowercase for easy comparison
@@ -154,6 +180,7 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
         Map<String, Runnable> actions = new HashMap<>();
 
         actions.put("yes", this::scorecardButtonClicked);
+        actions.put("yeah", this::scorecardButtonClicked);
         actions.put("sure", this::scorecardButtonClicked);
 
         // Check if any keyword is contained within the asrResult and execute the corresponding action
@@ -172,7 +199,7 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
         //askQuestion("Sorry, I didn't understand. Please say it again");
         //askQuestion("Apologies, could you repeat it again?");
 
-    }
+    }*/
     /*@Override
     public void onAsrResult(@NonNull String asrResult) {
         Log.d(TAG, "ASR Result: " + asrResult);
@@ -198,7 +225,7 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
 
         // Add robot event listeners
         sRobot.addOnRobotReadyListener(this);
-        sRobot.addAsrListener(this);
+        //sRobot.addAsrListener(this);
     }
     @Override
     public void onRobotReady(boolean isReady) {
@@ -215,7 +242,7 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
 
         // Remove robot event listeners
         sRobot.removeOnRobotReadyListener(this);
-        sRobot.removeAsrListener(this);
+        //sRobot.removeAsrListener(this);
     }
 
     private class SendHttpRequestTask extends AsyncTask<Void, Void, String> {
@@ -256,7 +283,7 @@ public class ShowPlain extends AppCompatActivity implements OnRobotReadyListener
             // Handle the response from the server
             Log.d(TAG, "Server Response: " + result);
             // Optionally, display toast or update UI based on the response
-            Toast.makeText(ShowPlain.this, "Server Response: " + result, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(ShowPlain.this, "Server Response: " + result, Toast.LENGTH_SHORT).show();
         }
     }
     @Override

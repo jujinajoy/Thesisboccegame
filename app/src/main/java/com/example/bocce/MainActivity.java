@@ -12,7 +12,8 @@ import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 public class MainActivity extends AppCompatActivity implements OnRobotReadyListener {
-    private static final long DELAY_MILLIS = 5998;
+    //private static final long DELAY_MILLIS = 5998;
+    private static final long DELAY_MILLIS = 7998;
     private Robot mRobot;
     private static final String TAG = "MainActivity";
     private TimeLogger timeLogger;
@@ -71,8 +72,11 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
             Log.i(TAG, "Robot is ready");
 
             mRobot.hideTopBar();
-            TtsRequest ttsRequest = TtsRequest.create("Welcome to the game of bocce!", true);
+            //mRobot.showTopBar();
+            //mRobot.showFullScreen();
+            TtsRequest ttsRequest = TtsRequest.create("HELLO EVERYONE ,WELCOME TO THE GAME OF BOCCE!", true);
             mRobot.speak(ttsRequest);
+            //mRobot.speak(TtsRequest.create("Welcome to the game of bocce!",false));
             //askNextQuestion();// hide temi's top action bar when skill is active
         }
     }

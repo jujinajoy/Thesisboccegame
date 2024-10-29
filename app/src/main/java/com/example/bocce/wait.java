@@ -18,7 +18,8 @@ import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
 public class wait extends AppCompatActivity implements OnRobotReadyListener{
     //private static final String SERVER_URL = "http://192.168.0.100/runss.php"; // Replace with you serverURL
-    private static final long WAIT_TIME_MS = 35_000; // 4 minutes
+    private static final long WAIT_TIME_MS = 28_400; // 4 minutes
+    //private static final long WAIT_TIME_MS = 27_000;
     private static final String TAG = wait.class.getSimpleName();
     private Robot sRobot;
 
@@ -32,7 +33,7 @@ public class wait extends AppCompatActivity implements OnRobotReadyListener{
         //sRobot.addAsrListener(this);
 
         //sRobot.addOnRobotReadyListener((OnRobotReadyListener)this);
-        TtsRequest ttsRequest = TtsRequest.create("Let's unveil the champion of the game!", true);
+        TtsRequest ttsRequest = TtsRequest.create("LET'S LOOK IN TO THE SCOREBOARD!", true);
         sRobot.finishConversation();
         sRobot.speak(ttsRequest);
 

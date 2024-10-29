@@ -2,11 +2,11 @@
     <string name="app_name">bocce</string>
 
     <string-array name="ball_colors">
-        <item>Null</item>
-        <item>Red</item>
-        <item>Blue</item>
-        <item>Green</item>
-        <item>Orange</item>
+        <item>NONE</item>
+        <item>RED</item>
+        <item>BLUE</item>
+        <item>GREEN</item>
+        <item>ORANGE</item>
     </string-array>
 
     <string name="scorecard">Scorecard</string>
