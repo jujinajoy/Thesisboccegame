@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ball_colors">
+        <item>NONE</item>
+        <item>RED</item>
+        <item>BLUE</item>
+        <item>GREEN</item>
+        <item>ORANGE</item>
+    </string-array>
+    <string-array name="ball_colorss"/>
+    <color name="blue">#FF0000FF</color>
+    <color name="brown"> #654321</color>
+    <color name="green">#FF00FF00</color>
+    <color name="light_lavender">#B76E79</color>
+    <color name="orange">#FFFFA500</color>
+    <color name="red">#FFFF0000</color>
+    <string name="_60">60</string>
+    <string name="app_name">bocce</string>
+    <string name="ball_color">Ball Color</string>
+    <string name="bocce_game">BOCCE_GAME</string>
+    <string name="boccess_game"/>
+    <string name="default_color">Null</string>
+    <string name="player_name">Player Name</string>
+    <string name="players_name">Players Name</string>
+    <string name="round"/>
+    <string name="round_no">Round %d</string>
+    <string name="scorecard">Scorecard</string>
+    <string name="todo">TODO</string>
+    <style name="Base.Theme.Bocce" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.Bocce" parent="Base.Theme.Bocce"/>
+</resources>

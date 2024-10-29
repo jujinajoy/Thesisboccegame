@@ -1,0 +1,170 @@
+[
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_spinner_item.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\spinner_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_letsgo.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\letsgo.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_activity_show_plain.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\activity_show_plain.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable_rounded_white_box.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\drawable\\rounded_white_box.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-pngs-26:\\drawable-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_activity_instruct.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\activity_instruct.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_activity_startdone2.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\activity_startdone2.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable_winner.jpg.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\drawable\\winner.jpg"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable-ldpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-pngs-26:\\drawable-ldpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable_new2.jpg.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\drawable\\new2.jpg"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-pngs-26:\\drawable-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.bocce.app-merged_res-30:/layout_activity_2.xml.flat",
+        "source": "com.example.bocce.app-main-32:/layout/activity_2.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable_new1.jpg.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\drawable\\new1.jpg"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_activity_scorecard.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\activity_scorecard.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_activity_round.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\activity_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_activity_2.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\activity_2.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-pngs-26:\\drawable-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-pngs-26:\\drawable-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-pngs-26:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_activity_wait.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\activity_wait.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_finalpart.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\finalpart.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable_new3.jpg.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\drawable\\new3.jpg"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable_let.jpg.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\drawable\\let.jpg"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable_backg.png.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\drawable\\backg.png"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_custom_dialog.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\custom_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-pngs-26:\\drawable-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-merged_res-30:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\santh\\.gradle\\daemon\\8.0\\com.example.bocce.app-main-32:\\layout\\activity_main.xml"
+    }
+]
